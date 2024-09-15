@@ -1,0 +1,44 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-zinc-900 text-white">
+
+  <!-- Main Container -->
+  <div class="main w-full min-h-screen flex flex-col items-center">
+    
+    <!-- Header Section -->
+    <div class="w-full bg-blue-700 h-12 flex items-center justify-center">
+      <a class="text-white text-lg font-bold" href="/product_0">See The Products</a>
+    </div>
+    
+    <!-- Individual Product Form Section -->
+    <div class="form w-1/2 p-10 mt-8 bg-zinc-800 rounded-lg shadow-lg">
+      <h2 class="text-2xl font-semibold mb-4">Add Individual Product</h2>
+      <form action="/create" method="post">
+          <input class="p-3 w-full bg-zinc-700 outline-none rounded-md mb-4" type="text" placeholder="Product Type" name="producttype" required>
+          <input class="p-3 w-full bg-zinc-700 outline-none rounded-md mb-4" type="text" placeholder="Title" name="title" required>
+          <input class="p-3 w-full bg-zinc-700 outline-none rounded-md mb-4" type="text" placeholder="Image URL" name="image" required>
+          <input class="p-3 w-full bg-zinc-700 outline-none rounded-md mb-4" type="text" placeholder="Size" name="size" required>
+          <input class="p-3 w-full bg-zinc-700 outline-none rounded-md mb-4" type="text" placeholder="Price" name="price" required>
+          <input type="submit" value="Create Product" class="bg-blue-700 px-5 py-2 w-full rounded-md cursor-pointer hover:bg-blue-800">
+      </form>
+    </div>
+
+    <!-- Homepage Product Form Section -->
+    <div class="form w-1/2 p-10 mt-8 bg-zinc-800 rounded-lg shadow-lg">
+      <h2 class="text-2xl font-semibold mb-4">Add Homepage Product</h2>
+      <form action="/create-homepage" method="post">
+          <input class="p-3 w-full bg-zinc-700 outline-none rounded-md mb-4" type="text" placeholder="Product Type" name="producttype" required>
+          <input class="p-3 w-full bg-zinc-700 outline-none rounded-md mb-4" type="text" placeholder="Image URL" name="imageurl" required>
+          <input type="submit" value="Add to Homepage" class="bg-blue-700 px-5 py-2 w-full rounded-md cursor-pointer hover:bg-blue-800">
+      </form>
+    </div>
+    
+  </div>
+
+</body>
+</html>

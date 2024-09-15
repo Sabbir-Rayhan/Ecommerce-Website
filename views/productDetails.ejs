@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="../stylesheets/productderails.css">
+</head>
+<body>
+    <header>
+        <div class="navbar">
+            <div class="nav_logo border">
+                <div class="logo"></div>
+            </div>
+
+            <div class="nav_home border">
+                <a href="/" class="home_link">
+                    <i class="fa-solid fa-house"></i>
+                    Home
+                </a>
+            </div>
+
+            <div class="nav_address border">
+                <p class="first">Deliver to</p>
+                <div class="add_icon">
+                    <i class="fa-solid fa-location-dot"></i>
+                    <p class="second">Bangladesh</p>
+                </div>
+            </div>
+
+
+            <div class="nav_search">
+                <select class="search_select" name="" id="">
+                    <option value="">All</option>
+                </select>
+                <input class="search_input" type="text" placeholder="Search Here">
+                <div class="search_icon">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                </div>
+            </div>
+
+            <div class="nav-signin">
+                <% if (user1) { %>
+                <div class="signa">
+                  <p><span>Hello, <%= user1.username %></span></p>
+                  <p class="nav-second">
+                    <a class="logout1" href="/logout">Logout</a>
+                  </p>
+                </div>
+                <% } else { %>
+                <a href="/login?returnTo=<%= encodeURIComponent(originalUrl) %>" class="signa">
+                  <p><span>Hello, sign in</span></p>
+                  <p class="nav-second">Account & Lists</p>
+                </a>
+                <% } %>
+            </div>
+            
+
+            <div class="nav-return border">
+                <p><span>Return</span></p>
+                <p class="nav-second">& Orders</p>
+            </div>
+
+            <div class="nav-cart border">
+                <i class="fa-solid fa-cart-shopping"></i>
+                Cart
+            </div>
+
+        </div>
+
+        <!-- Started Second Div For panel -->
+        <div class="panel">
+            <div class="panel-all">
+                <i class="fa-solid fa-bars"></i>
+                All
+            </div>
+
+            <div class="panel-option">
+                <p>Today's Deal</p>
+                <p>Customer Service</p>
+                <p>Registry</p>
+                <p>Gift Cards</p>
+                <p>Sell</p>
+            </div>
+
+            <div class="panel-deals">
+                <p>Shop deals in easy way</p>
+            </div>
+
+        </div>
+    </header>
+
+    <section id="prodetails" class="section-p1">
+        <div class="singleproimg">
+            <img src="<%=Rayhan.image%>" width="100%" id="mainimg" alt="">
+            <!-- <div class="smallimg">
+                <div class="smallimgcol">
+                    <img src="Gazi photos/marshal.jpg" width="100%" class="small" alt="">
+                </div>
+                <div class="smallimgcol">
+                    <img src="Gazi photos/marshal2.jpg" width="100%" class="small" alt="">
+                </div>
+                <div class="smallimgcol">
+                    <img src="Gazi photos/marshal3.jpg" width="100%" class="small" alt="">
+                </div>
+                <div class="smallimgcol">
+                    <img src="Gazi photos/marshal4.jpg" width="100%" class="small" alt="">
+                </div>
+            </div> -->
+        </div>
+        <div class="single-pro-details">
+            <h6>Home / Tyre</h6>
+            <h4><%=Rayhan.title%></h4>
+            <h2>৳ <%=Rayhan.price%></h2>
+            <select>
+                <option><b>Select Size</b></option>
+                <option>6.50-16</option>
+                <option>7.00-15</option>
+                <option>7.50-16</option>
+                <option>7.00-16</option>
+                <option>8.25-16</option>
+            </select>
+            <input type="number" value="1">
+            <div class="cr2">
+                <button class="normal" id="cr">Add To Cart</button>
+                <button onclick="checkLoginAndRedirect()" class="normal productButton" id="cr1">Buy Now</button>
+            </div>
+            <h4>Product Details</h4>
+            <span>
+                <table>
+                    <tr>
+                        <th>Name</th>
+                        <th>Category</th>
+                        <th>Size</th>
+                        <th>Ply rating</th>
+                        <th>Bit Type</th>
+                    </tr>
+                    <tr>
+                        <td><%=Rayhan.title%></td>
+                        <td><%=Rayhan.producttype%></td>
+                        <td>
+                            7.50-16<br>
+                            6.50-16<br>
+                            7.00-15<br>
+                            7.50-16<br>
+                            7.00-16<br>
+                            8.25-16<br>
+                        </td>
+                        <td>12/14/16/18</td>
+                        <td>Civil Bit</td>
+                    </tr>
+                </table>
+            </span>
+        </div>
+    </section>
+
+ 
+
+   
+        <h2 id="nn">Related Products</h2>
+
+        <div class="product-container">        
+            <% mahee.forEach(function(e){ %>
+                <div class="product-card">
+                    <div class="product-image-container">
+                        <img class="product-image" src="<%=e.image%>" alt="<%=e.title%>">
+                    </div>
+                    <div class="product-details">
+                        <div class="product-category">
+                            <%=e.producttype %>
+                        </div>
+                        <div class="product-title">
+                            <%=e.title%>
+                        </div>
+                        <div class="product-size">
+                            Size: <%=e.size%>
+                        </div>
+                        <div class="product-price">
+                            Price: <%=e.price%>&#2547;
+                        </div>
+                        <a href="/productdetails/<%= e._id%>">
+                            <button class="read-more-btn">Read More</button>
+                        </a>
+                    </div>
+                </div>
+            <% }) %>
+        </div>
+
+    
+
+    <section id="newsletter" class="section-p1 section-m1">
+        <div class="newstext">
+            <h4>Sign Up For Newsletters</h4>
+            <p>Get E-mail updates about our latest shop and <span>special offers.</span>
+            </p>
+        </div>
+        <div class="form">
+            <input type="text" placeholder="Your email address">
+            <button class="normal">Sign Up</button>
+        </div>
+    </section>
+
+    <!-- Footer Section -->
+    <footer>
+        <div class="panel1">
+            Back to Top
+        </div>
+
+        <div class="panel2">
+            <ul>
+                <p> Get to Know Us</p>
+                <a href="">About Us</a>
+                <a href="">Careers</a>
+                <a href="">Press Releases</a>
+                <a href="">Amazing Science</a>
+            </ul>
+
+            <ul>
+                <p> Connect with Us</p>
+                <a href="">Facebook</a>
+                <a href="">Careers</a>
+                <a href="">Twitter</a>
+                <a href="">Instagram</a>
+            </ul>
+
+            <ul>
+                <p>Make Money with Us</p>
+                <a href="">Sell on KTyres</a>
+                <a href="">Sell under KTyres Accelerator</a>
+                <a href="">Protect and Build Your Brand</a>
+                <a href="">KTyres Global Selling</a>
+                <a href="">Become an Affiliate</a>
+                <a href="">KTyres Global Selling</a>
+                <a href="">Advertise Your Products</a>
+                <a href="">KTyres Pay on Merchants</a>
+            </ul>
+
+            <ul>
+                <p> Let Us Help You</p>
+                <a href="">COVID-19 and Amazon</a>
+                <a href="">Your Account</a>
+                <a href="">Returns Centre</a>
+                <a href="">100% Purchase Protection</a>
+                <a href="">KTyres App Download</a>
+                <a href="">Help</a>
+            </ul>
+        </div>
+
+        <div class="panel3">
+            <div class="logo_img">
+
+            </div>
+        </div>
+
+        <div class="panel4">
+            <div class="pages">
+                <a href="">Conditions of Use & Sale</a>
+                <a href="">Privacy Notice</a>
+                <a href="">Interest-Based Ads</a>
+            </div>
+            <div class="copyright">
+                © 1996-2024, KTyres.com, Inc. or its affiliates
+            </div>
+        </div>
+
+    </footer>
+    <script>
+        function checkLoginAndRedirect() {
+            const token = document.cookie.split('; ').find(row => row.startsWith('token='));
+            if (token) {
+                const rayhan = <%- JSON.stringify(Rayhan) %>;
+                const queryString = new URLSearchParams(rayhan).toString();
+                window.location.href = `/payment?${queryString}`;
+            } else {
+                alert("Log in first");
+            }
+        }
+    </script>
+    
+</body>
+</html>

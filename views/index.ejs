@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <link rel='stylesheet' href='/stylesheets/homepage.css' />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+        integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+  </head>
+  <body>
+    <header>
+      <div class="navbar">
+          <div class="nav_logo border">
+              <div class="logo"></div>
+          </div>
+
+          <div class="nav_home border">
+            <a href="/" class="home_link">
+                <i class="fa-solid fa-house"></i>
+                Home
+            </a>
+        </div>
+
+
+          <div class="nav_address border">
+              <p class="first">Deliver to</p>
+              <div class="add_icon">
+                  <i class="fa-solid fa-location-dot"></i>
+                  <p class="second">Bangladesh</p>
+              </div>
+          </div>
+
+
+          <div class="nav_search">
+              <select class="search_select" name="" id="">
+                  <option value="">All</option>
+              </select>
+              <input class="search_input" type="text" placeholder="Search Here">
+              <div class="search_icon">
+                  <i class="fa-solid fa-magnifying-glass"></i>
+              </div>
+          </div>
+
+          <div class="nav-signin">
+            <% if (user1) { %>
+            <div class="signa">
+              <p><span>Hello, <%= user1.username %></span></p>
+              <p class="nav-second">
+                <a class="logout1" href="/logout">Logout</a>
+              </p>
+            </div>
+            <% } else { %>
+            <a href="/login?returnTo=<%= encodeURIComponent(originalUrl1) %>" class="signa">
+              <p><span>Hello, sign in</span></p>
+              <p class="nav-second">Account & Lists</p>
+            </a>
+            <% } %>
+        </div>
+        
+
+          <div class="nav-return border">
+              <p><span>Return</span></p>
+              <p class="nav-second">& Orders</p>
+          </div>
+
+          <div class="nav-cart border">
+              <i class="fa-solid fa-cart-shopping"></i>
+              Cart
+          </div>
+
+      </div>
+
+      <!-- Started Second Div For panel -->
+      <div class="panel">
+          <div class="panel-all">
+              <i class="fa-solid fa-bars"></i>
+              All
+          </div>
+
+          <div class="panel-option">
+              <p>Today's Deal</p>
+              <p>Customer Service</p>
+              <p>Registry</p>
+              <p>Gift Cards</p>
+              <p>Sell</p>
+          </div>
+
+          <div class="panel-deals">
+              <p>Shop deals in easy way</p>
+          </div>
+
+      </div>
+  </header>
+
+  <!-- Hero Section or Middle Section Started -->
+
+  <div class="hero_section">
+      <div class="hero-message">
+          <p>You are on KTyres.com. You can also shop on any other car & bike accessories in a reasonable price and
+              products with fast local
+              delivery. <a href="">Click here to go to KTyres.com</a></p>
+      </div>
+  </div>
+
+  <!-- Shop Section Started -->
+
+  <div class="shop-section">
+
+    <% homepro.forEach(function(home,index){%>
+        <div class="box">
+            <a href="/product_/<%=index%>">
+                <div class="box-content">
+                    <h2><%=home.producttype%></h2>
+                    <div class="box-image" style="background-image:url(<%=home.imageurl%>)">
+                    </div>
+                    <p>See more</p>
+                </div>
+            </a>
+        </div>
+    <%})%>
+    
+</div>
+
+
+
+  <!-- Footer Section -->
+
+  <footer>
+      <div class="panel1">
+          Back to Top
+      </div>
+
+      <div class="panel2">
+          <ul>
+              <p> Get to Know Us</p>
+              <a href="">About Us</a>
+              <a href="">Careers</a>
+              <a href="">Press Releases</a>
+              <a href="">Amazing Science</a>
+          </ul>
+
+          <ul>
+              <p> Connect with Us</p>
+              <a href="">Facebook</a>
+              <a href="">Careers</a>
+              <a href="">Twitter</a>
+              <a href="">Instagram</a>
+          </ul>
+
+          <ul>
+              <p>Make Money with Us</p>
+              <a href="">Sell on KTyres</a>
+              <a href="">Sell under KTyres Accelerator</a>
+              <a href="">Protect and Build Your Brand</a>
+              <a href="">KTyres Global Selling</a>
+              <a href="">Become an Affiliate</a>
+              <a href="">KTyres Global Selling</a>
+              <a href="">Advertise Your Products</a>
+              <a href="">KTyres Pay on Merchants</a>
+          </ul>
+
+          <ul>
+              <p> Let Us Help You</p>
+              <a href="">COVID-19 and Amazon</a>
+              <a href="">Your Account</a>
+              <a href="">Returns Centre</a>
+              <a href="">100% Purchase Protection</a>
+              <a href="">KTyres App Download</a>
+              <a href="">Help</a>
+          </ul>
+      </div>
+
+      <div class="panel3">
+          <div class="logo_img">
+
+          </div>
+      </div>
+
+      <div class="panel4">
+          <div class="pages">
+              <a href="">Conditions of Use & Sale</a>
+              <a href="">Privacy Notice</a>
+              <a href="">Interest-Based Ads</a>
+          </div>
+          <div class="copyright">
+              © 1996-2024, KTyres.com, Inc. or its affiliates
+          </div>
+      </div>
+
+  </footer>
+  </body>
+</html>
